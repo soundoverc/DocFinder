@@ -302,6 +302,7 @@ class DocFinder {
 					printDirectoryDocs(text);
 				}
 			}
+			
 		} catch (Exception e) {
 			in.close();
 		} finally {
