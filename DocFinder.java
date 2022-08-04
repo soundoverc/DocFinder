@@ -236,71 +236,63 @@ class DocFinder {
 				System.out.print("Input a command: ");
 				text = in.nextLine();
 				
-				if (text.equals("q")) {
-					in.close();
-					System.out.println("Exit");
-					break;
-				}
-				
-				if (text.equals("p")) {
-					System.out.println("input document number:");
-					text = in.nextLine();
-					System.out.println(getOwner(text));
-				}
-				
-				if (text.equals("s")) {
-					System.out.println("input document number:");
-					text = in.nextLine();
-					System.out.println(getDirectory(text));
-				}
-				
-				if (text.equals("l")) {
-					printDocs();
-				}
-				
-				if (text.equals("ads")) {
-					System.out.println("input directory number:");
-					text = in.nextLine();
-					addDirectory(text);
-				}
-				
-				if (text.equals("ds")) {
-					System.out.println("input directory number:");
-					text = in.nextLine();
-					delDirectory(text);
-				}
-				
-				if (text.equals("ad")) {
-					System.out.println("input document number:");
-					String doc_num = in.nextLine();
-					System.out.println("input document type:");
-					String doc_type = in.nextLine();
-					System.out.println("input document owner:");
-					String doc_owner = in.nextLine();
-					System.out.println("input document directory:");
-					String doc_dir = in.nextLine();
-					addDocument(doc_num, doc_type, doc_owner, doc_dir);
-				}
-				
-				if (text.equals("d")) {
-					System.out.println("input document number:");
-					text = in.nextLine();
-					delDocument(text);
-				}
-				
-				if (text.equals("m")) {
-					System.out.println("input document number:");
-					String doc_num = in.nextLine();
-					System.out.println("input document directory:");
-					String doc_dir = in.nextLine();
-					move(doc_num, doc_dir);
-				}
-				
-				if (text.equals("pd")) {
-					System.out.println("input directory number:");
-					text = in.nextLine();
-					printDirectoryDocs(text);
-				}
+				switch (text) {
+					case "q" : 					
+						in.close();
+						System.out.println("Exit");
+						break;
+						
+					case "p" :
+						System.out.println("input document number:");
+						text = in.nextLine();
+						System.out.println(getOwner(text));
+						
+					case "s" : 
+						System.out.println("input document number:");
+						text = in.nextLine();
+						System.out.println(getDirectory(text));
+						
+					case "l" :
+						printDocs();
+						
+					case "ads" :
+						System.out.println("input directory number:");
+						text = in.nextLine();
+						addDirectory(text);
+						
+					case "ds" :
+						System.out.println("input directory number:");
+						text = in.nextLine();
+						delDirectory(text);
+						
+					case "ad" :
+						System.out.println("input document number:");
+						String doc_num = in.nextLine();
+						System.out.println("input document type:");
+						String doc_type = in.nextLine();
+						System.out.println("input document owner:");
+						String doc_owner = in.nextLine();
+						System.out.println("input document directory:");
+						String doc_dir = in.nextLine();
+						addDocument(doc_num, doc_type, doc_owner, doc_dir);
+						
+					case "d" :
+						System.out.println("input document number:");
+						text = in.nextLine();
+						delDocument(text);
+					
+					case "m" :
+						System.out.println("input document number:");
+						doc_num = in.nextLine();
+						System.out.println("input document directory:");
+						doc_dir = in.nextLine();
+						move(doc_num, doc_dir);
+					
+					case "pd" :
+						System.out.println("input directory number:");
+						text = in.nextLine();
+						printDirectoryDocs(text);
+				}				
 			}
 		} catch (Exception e) {
 			in.close();
